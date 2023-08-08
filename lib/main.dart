@@ -14,7 +14,7 @@ class BenimUygulamam extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
-          centerTitle: true, //AppBar yazıyı ortalar
+          centerTitle: true,
           title: Text(
             'Bugün Ne Yesem?',
             style: TextStyle(color: Colors.black),
@@ -32,35 +32,35 @@ class YemekSayfasi extends StatefulWidget {
 }
 
 class _YemekSayfasiState extends State<YemekSayfasi> {
-  int corbaNo = 1;
-  int yemekNo = 1;
-  int tatliNo = 1;
-  List<String> corbaAdlari = [
-    'Mercimek',
-    'Tarhana',
-    'Tavuksuyu',
-    'Düğün Çorbası',
-    'Yoğurtlu Çorba'
+  int karboNo = 1;
+  int proteinNo = 1;
+  int meyveNo = 1;
+  List<String> karboAdlari = [
+    'Pirinç Pilavı | 21,57g Karbonhidrat',
+    'Makarna | 25,12g Karbonhidrat',
+    'Şehriye Pilavı | 24,45g Karbonhidrat',
+    'Yulaf Ezmesi | 53g Karbonhidrat',
+    'Mısır Gevreği | 84g Karbonhidrat'
   ];
-  List<String> yemekAdlari = [
-    'Karnıyarık',
-    'Mantı',
-    'Kuru Fasulye',
-    'İçli Köfte',
-    'Izgara Balık'
+  List<String> proteinAdlari = [
+    'Haşlanmış Tavuk | 24,7g Protein',
+    'Antrikot | 19,62g Protein',
+    'Somon Balığı | 21,62g Protein',
+    'Haşlanmış Yumurta | 12,58g Protein',
+    'Sahanda Yumurta | 10,68g Protein'
   ];
-  List<String> tatliAdlari = [
-    'Kadayıf',
-    'Baklava',
-    'Sütlaç',
-    'Kazandibi',
-    'Dondurma'
+  List<String> meyveAdlari = [
+    'Elma | 19,06g Karbonhidrat',
+    'Muz | 26,95g Karbonhidrat',
+    'Armut | 25,66g Karbonhidrat',
+    'Ananas | 12,63g Karbonhidrat',
+    'Kivi | 14,66g Karbonhidrat'
   ];
   void yemekleriYenile() {
     setState(() {
-      corbaNo = Random().nextInt(5) + 1;
-      yemekNo = Random().nextInt(5) + 1;
-      tatliNo = Random().nextInt(5) + 1;
+      karboNo = Random().nextInt(5) + 1;
+      proteinNo = Random().nextInt(5) + 1;
+      meyveNo = Random().nextInt(5) + 1;
     });
   }
 
@@ -69,22 +69,26 @@ class _YemekSayfasiState extends State<YemekSayfasi> {
     return Center(
       child: Column(
         children: [
+          Text(
+            'Bütün besin değerleri 100gr üzerindendir.',
+            style: TextStyle(fontSize: 20),
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: TextButton(
                   onPressed: () {
                     setState(() {
-                      corbaNo = Random().nextInt(5) + 1;
-                      yemekNo = Random().nextInt(5) + 1;
-                      tatliNo = Random().nextInt(5) + 1;
+                      karboNo = Random().nextInt(5) + 1;
+                      proteinNo = Random().nextInt(5) + 1;
+                      meyveNo = Random().nextInt(5) + 1;
                     });
                   },
-                  child: Image.asset('assets/corba_$corbaNo.jpg')),
+                  child: Image.asset('assets/karbonhidrat_$karboNo.jpg')),
             ),
           ),
           Text(
-            corbaAdlari[corbaNo - 1],
+            karboAdlari[karboNo - 1],
             style: TextStyle(fontSize: 20),
           ),
           Container(
@@ -99,11 +103,11 @@ class _YemekSayfasiState extends State<YemekSayfasi> {
               padding: const EdgeInsets.all(12.0),
               child: TextButton(
                   onPressed: yemekleriYenile,
-                  child: Image.asset('assets/yemek_$yemekNo.jpg')),
+                  child: Image.asset('assets/protein_$proteinNo.jpg')),
             ),
           ),
           Text(
-            yemekAdlari[yemekNo - 1],
+            proteinAdlari[proteinNo - 1],
             style: TextStyle(fontSize: 20),
           ),
           Container(
@@ -118,11 +122,11 @@ class _YemekSayfasiState extends State<YemekSayfasi> {
               padding: const EdgeInsets.all(12.0),
               child: TextButton(
                   onPressed: yemekleriYenile,
-                  child: Image.asset('assets/tatli_$tatliNo.jpg')),
+                  child: Image.asset('assets/meyve_$meyveNo.jpg')),
             ),
           ),
           Text(
-            tatliAdlari[tatliNo - 1],
+            meyveAdlari[meyveNo - 1],
             style: TextStyle(fontSize: 20),
           ),
           Container(
